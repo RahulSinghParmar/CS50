@@ -418,7 +418,7 @@ Now, let’s create our `index.html` template. We’ll have to again create a ne
 </html>
 ```
 
-In the code above, notice that when we wish to include logic in our HTML files, we use "%" as opening and closing tags around logical statements. Also note that Django’s formatting language requires you to include an ending tag indicating that we are done with our `if-else` block. Now, we can open up to our page to see:
+In the code above, notice that when we wish to include logic in our HTML files, we use `%...%` as opening and closing tags around logical statements. Also note that Django’s formatting language requires you to include an ending tag indicating that we are done with our `if-else` block. Now, we can open up to our page to see:
 
 ![https://cs50.harvard.edu/web/2020/notes/3/images/no.png](https://cs50.harvard.edu/web/2020/notes/3/images/no.png)
 
@@ -454,7 +454,7 @@ h1 {
 }
 ```
 
-Now, to include this styling in our HTML file, we add the line `{% load static %}` to the top of our HTML template, which signals to Django that we wish to have access to the files in our `static` folder. Then, rather than hard-coding the link to a stylesheet as we did before, we’ll use some Django-specific syntax:
+Now, to include this styling in our HTML file, we add the line `% load static %` to the top of our HTML template, which signals to Django that we wish to have access to the files in our `static` folder. Then, rather than hard-coding the link to a stylesheet as we did before, we’ll use some Django-specific syntax:
 
 ```html
 <link rel="stylesheet" href="{% static 'newyear/styles.css' %}">
@@ -577,7 +577,7 @@ However, what we’ve just done isn’t necessarily the best design, as we’ve 
 </html>
 ```
 
-Notice that we’ve again used `{%...%}` to denote some sort of non-HTML logic, and in this case, we’re telling Django to fill this “block” with some text from another file. Now, we can alter our other two HTML files to look like:
+Notice that we’ve again used `%...%` to denote some sort of non-HTML logic, and in this case, we’re telling Django to fill this “block” with some text from another file. Now, we can alter our other two HTML files to look like:
 
 ```python
 index.html:
