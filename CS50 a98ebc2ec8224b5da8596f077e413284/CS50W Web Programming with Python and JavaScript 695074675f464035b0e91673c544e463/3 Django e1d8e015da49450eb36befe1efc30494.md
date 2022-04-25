@@ -8,11 +8,11 @@
 - Django
 - Routes
 - Templates
-    - Conditionals:
-    - Styling
+  - Conditionals:
+  - Styling
 - Tasks
 - Forms
-    - Django Forms
+  - Django Forms
 - Sessions
 
 [https://youtu.be/w8q0C-C1js4](https://youtu.be/w8q0C-C1js4)
@@ -28,7 +28,7 @@
 
 ---
 
-So far, all of the web applications we’ve written have been **static**. This means that every single time we open that web page, it looks exactly the same. Many websites we visit every day, however, change every time we visit them. If you visit the websites of the [New York Times](https://www.nytimes.com/) or [Facebook](https://www.facebook.com/), for example, you’ll most likely see different things today than you will tomorrow. For large sites like those, it would be unreasonable for employees to have to manually edit a large HTML file every time a change is made, which is where **dynamic** websites can be extremely useful. A dynamic website is one that takes advantage of a programming language (such as Python) to dynamically generate HTML and CSS files. During this lecture, we’ll learn how to create our first 
+So far, all of the web applications we’ve written have been **static**. This means that every single time we open that web page, it looks exactly the same. Many websites we visit every day, however, change every time we visit them. If you visit the websites of the [New York Times](https://www.nytimes.com/) or [Facebook](https://www.facebook.com/), for example, you’ll most likely see different things today than you will tomorrow. For large sites like those, it would be unreasonable for employees to have to manually edit a large HTML file every time a change is made, which is where **dynamic** websites can be extremely useful. A dynamic website is one that takes advantage of a programming language (such as Python) to dynamically generate HTML and CSS files. During this lecture, we’ll learn how to create our first
 dynamic applications.
 
 ## HTTP
@@ -59,7 +59,7 @@ After receiving a request, a server will then send back an HTTP response, which 
 
 ---
 
-[Django](https://www.djangoproject.com/) is a Python-based web framework that will allow us to write Python code that dynamically generates HTML and CSS. The advantage to using a framework like Django is that a lot of code is already written for us that we can take 
+[Django](https://www.djangoproject.com/) is a Python-based web framework that will allow us to write Python code that dynamically generates HTML and CSS. The advantage to using a framework like Django is that a lot of code is already written for us that we can take
 advantage of.
 
 - To get started, we’ll have to install Django, which means you’ll also have to [install pip](https://pip.pypa.io/en/stable/installing/) if you haven’t already done so.
@@ -78,15 +78,14 @@ the start:
     from time to time.
     - `urls.py` contains directions for where users should be routed after navigating to a certain URL.
 4. Start the project by running `python manage.py runserver`. This will open a development server, which you can access by visiting the URL provided. This development server is being run locally on your machine, meaning other people cannot access your website. This should bring you to a default landing page:
-    
+
     ![https://cs50.harvard.edu/web/2020/notes/3/images/landing.png](https://cs50.harvard.edu/web/2020/notes/3/images/landing.png)
-    
+
 5. Next, we’ll have to create an application. Django projects are split into one or more **applications**. Most of our projects will only require one application, but larger sites can make use of this ability to split a site into multiple apps.
 To create an application, we run `python manage.py startapp APP_NAME`. This will create some additional directories and files that will be useful shortly, including `views.py`.
 6. Now, we have to install our new app. To do this, we go to `settings.py`, scroll down to the list of `INSTALLED_APPS`, and add the name of our new application to this list.
-    
+
     ![https://cs50.harvard.edu/web/2020/notes/3/images/installed.png](https://cs50.harvard.edu/web/2020/notes/3/images/installed.png)
-    
 
 ## Routes
 
@@ -95,7 +94,7 @@ To create an application, we run `python manage.py startapp APP_NAME`. This will
 Now, in order to get started with our application:
 
 1. Next, we’ll navigate to `views.py`. This file will contain a number of different views, and we can think of a view for now as one page the user might like to see. To create our first view, we’ll write a function that takes in a `request`. For now, we’ll simply return an `HttpResponse` (A very simple response that includes a response code of 200 and a string of text that can be displayed in a web browser) of “Hello, World”. In order to do this, we have include `from django.http import HttpResponse`. Our file now looks like:
-    
+
     ```python
      from django.shortcuts import render
      from django.http import HttpResponse
@@ -105,13 +104,13 @@ Now, in order to get started with our application:
      def index(request):
          return HttpResponse("Hello, world!")
     ```
-    
+
 2. Now, we need to somehow associate this view we have just created with a specific URL. To do this, we’ll create another file called `urls.py` in the same directory as `views.py`. We already have a `urls.py` file for the whole project, but it is best to have a separate one for each individual app.
-3. Inside our new `urls.py`, we’ll create a list of url patterns that a user might visit while using our website. In order to do this: 
+3. Inside our new `urls.py`, we’ll create a list of url patterns that a user might visit while using our website. In order to do this:
     1. We have to make some imports: `from django.urls import path` will give us the ability to reroute URLSs, and `from . import views` will import any functions we’ve created in `views.py`.
     2. Create a list called `urlpatterns`
     3. For each desired URL, add an item to the `urlpatterns` list that contains a call to the `path` function with two or three arguments: A string representing the URL path, a function from `views.py` that we wish to call when that URL is visited, and (optionally) a name for that path, in the format `name="something"`. For example, here’s what our simple app looks like now:
-    
+
     ```python
      from django.urls import path
      from . import views
@@ -120,9 +119,9 @@ Now, in order to get started with our application:
          path("", views.index, name="index")
      ]
     ```
-    
+
 4. Now, we’ve created a `urls.py` for this specific application, and it’s time to edit the `urls.py` created for us for the entire project. When you open this file, you should see that there’s already a path called `admin` which we’ll go over in later lectures. We want to add another path for our new app, so we’ll add an item to the `urlpatterns` list. This follows the same pattern as our earlier paths, except instead of adding a function from `views.py` as our second argument, we want to be able to include *all* of the paths from the `urls.py` file within our application. To do this, we write: `include("APP_NAME.urls")`, where `include` is a function we gain access to by also importing `include` from `django.urls` as shown in the `urls.py` below:
-    
+
     ```python
     from django.contrib import admin
     from django.urls import path, include
@@ -132,7 +131,7 @@ Now, in order to get started with our application:
         path('hello/', include("hello.urls"))
     ]
     ```
-    
+
 5. By doing this, we’ve specified that when a user visits our site, and then in the search bar adds `/hello` to the URL, they’ll be redirected to the paths inside of our new application.
 
 Now, when I start my application using
@@ -283,7 +282,7 @@ def index(request):
 
 It would get very tedious to write an entire HTML page within `views.py`. It would also constitute bad design, as we want to keep separate parts of our project in separate files whenever possible.
 
-This is why we’ll now introduce [Django’s templates](https://docs.djangoproject.com/en/4.0/topics/templates/), which will allow us to write HTML and CSS in separate files and render 
+This is why we’ll now introduce [Django’s templates](https://docs.djangoproject.com/en/4.0/topics/templates/), which will allow us to write HTML and CSS in separate files and render
 those files using Django. The syntax we’ll use for rendering a template looks like this:
 
 ```python
@@ -351,7 +350,7 @@ argument. Now, when we try it out:
 
 Now, we’ve seen how we can modify our HTML templates based on the context we provide. However, the Django templating language is even more powerful than that, so let’s take a look at a few other ways it can be helpful:
 
-### Conditionals:
+### Conditionals
 
 ---
 
@@ -387,9 +386,9 @@ urlpatterns = [
 Now that we’re set up with our new app, let’s figure out how to check whether or not it’s New Year’s Day. To do this, we can import Python’s [datetime](https://docs.python.org/3/library/datetime.html) module. To get a sense for how this module works, we can look at the [documentation](https://docs.python.org/3/library/datetime.html), and then test it outside of Django using the Python interpreter.
 
 - The **Python interpreter** is a tool we can use to test out small chunks of Python code. To use this, run `python` in your terminal, and then you’ll be able to type and run Python code within your terminal. When you’re done using the interpreter, run `exit()` to leave.
-    
+
     ![https://cs50.harvard.edu/web/2020/notes/3/images/datetime.png](https://cs50.harvard.edu/web/2020/notes/3/images/datetime.png)
-    
+
 - We can use this knowledge to construct a boolean expression that will evaluate to True if and only if today is New Year’s Day: `now.day == 1 and now.month == 1`
 - Now that we have an expression we can use to evaluate whether or not it’s New Year’s Day, we can update our index function in `views.py`:
 
@@ -419,7 +418,7 @@ Now, let’s create our `index.html` template. We’ll have to again create a ne
 </html>
 ```
 
-In the code above, notice that when we wish to include logic in our HTML files, we use `{%` and `%}` as opening and closing tags around logical statements. Also note that Django’s formatting language requires you to include an ending tag indicating that we are done with our `if-else` block. Now, we can open up to our page to see:
+In the code above, notice that when we wish to include logic in our HTML files, we use "{% and %}" as opening and closing tags around logical statements. Also note that Django’s formatting language requires you to include an ending tag indicating that we are done with our `if-else` block. Now, we can open up to our page to see:
 
 ![https://cs50.harvard.edu/web/2020/notes/3/images/no.png](https://cs50.harvard.edu/web/2020/notes/3/images/no.png)
 
@@ -475,11 +474,11 @@ Let’s start by, once again, creating a new app:
 1. run `python manage.py startapp tasks` in the terminal.
 2. Edit `settings.py`, adding “tasks” as one of our `INSTALLED_APPS`
 3. Edit our project’s `urls.py` file, and include a path similar to the one we created for the `hello` app:
-    
+
      `path('tasks/', include("tasks.urls"))`
-    
+
 4. Create another `urls.py` file within our new app’s directory, and update it to include a path similar to the index path in `hello`:
-    
+
     ```python
      from django.urls import path
      from . import views
@@ -488,7 +487,7 @@ Let’s start by, once again, creating a new app:
          path("", views.index, name="index"),
      ]
     ```
-    
+
 5. Create an index function in `views.py`.
 
 Now, let’s begin by attempting to simply create a list of tasks and then display them to a page. Let’s create a Python list at the top of `views.py` where we’ll store our tasks. Then, we can update our `index` function to render a template, and provide our newly-created list as context.
@@ -844,11 +843,10 @@ Watch lecture.
 Video
 
 - MP4
-    - [360p](https://cdn.cs50.net/web/2020/spring/lectures/3/lecture3-360p.mp4.download)
-    - [720p](https://cdn.cs50.net/web/2020/spring/lectures/3/lecture3-720p.mp4.download)
-    - [1080p](https://cdn.cs50.net/web/2020/spring/lectures/3/lecture3-1080p.mp4.download)
-    - [4K](https://cdn.cs50.net/web/2020/spring/lectures/3/lecture3-4k.mp4.download)
-    
+  - [360p](https://cdn.cs50.net/web/2020/spring/lectures/3/lecture3-360p.mp4.download)
+  - [720p](https://cdn.cs50.net/web/2020/spring/lectures/3/lecture3-720p.mp4.download)
+  - [1080p](https://cdn.cs50.net/web/2020/spring/lectures/3/lecture3-1080p.mp4.download)
+  - [4K](https://cdn.cs50.net/web/2020/spring/lectures/3/lecture3-4k.mp4.download)
 
 - Finish Project 1.
 
