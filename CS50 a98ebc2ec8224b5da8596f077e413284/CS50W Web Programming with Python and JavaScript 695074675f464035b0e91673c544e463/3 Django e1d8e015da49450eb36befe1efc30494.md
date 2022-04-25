@@ -409,11 +409,11 @@ Now, let’s create our `index.html` template. We’ll have to again create a ne
         <title>Is it New Year's?</title>
     </head>
     <body>
-        {% if newyear %}
+        % if newyear %}
             <h1>YES</h1>
-        {% else %}
+        % else %}
             <h1>NO</h1>
-        {% endif %}
+        % endif %}
     </body>
 </html>
 ```
@@ -513,9 +513,9 @@ Now, let’s work on creating our template HTML file:
     </head>
     <body>
         <ul>
-            {% for task in tasks %}
+            % for task in tasks %}
                 <li>{{ task }}</li>
-            {% endfor %}
+            % endfor %}
         </ul>
     </body>
 </html>
@@ -570,8 +570,8 @@ However, what we’ve just done isn’t necessarily the best design, as we’ve 
         <title>Tasks</title>
     </head>
     <body>
-        {% block body %}
-        {% endblock %}
+        % block body %}
+        % endblock %}
     </body>
 </html>
 ```
@@ -583,16 +583,16 @@ index.html:
 ```
 
 ```python
-{% extends "tasks/layout.html" %}
+% extends "tasks/layout.html" %}
 
-{% block body %}
+% block body %}
     <h1>Tasks:</h1>
     <ul>
-        {% for task in tasks %}
+        % for task in tasks %}
             <li>{{ task }}</li>
-        {% endfor %}
+        % endfor %}
     </ul>
-{% endblock %}
+% endblock %}
 ```
 
 ```python
@@ -600,15 +600,15 @@ add.html:
 ```
 
 ```python
-{% extends "tasks/layout.html" %}
+% extends "tasks/layout.html" %}
 
-{% block body %}
+% block body %}
     <h1>Add Task:</h1>
     <form action="">
         <input type="text", name="task">
         <input type="submit">
     </form>
-{% endblock %}
+% endblock %}
 ```
 
 Notice how we can now get rid of much of the repeated code by *extending* our layout file. Now, our index page remains the same, and we now have an add page as well:
@@ -664,7 +664,7 @@ To incorporate this technology into our code, we must add a line to our form in 
 
 ```python
 <form action="% url 'tasks:add' %}" method="post">
-    {% csrf_token %}
+    % csrf_token %}
     <input type="text", name="task">
     <input type="submit">
 </form>
@@ -712,17 +712,17 @@ def add(request):
 Now, within `add.html`, we can replace our input field with the form we just created:
 
 ```python
-{% extends "tasks/layout.html" %}
+% extends "tasks/layout.html" %}
 
-{% block body %}
+% block body %}
     <h1>Add Task:</h1>
     <form action="% url 'tasks:add' %}" method="post">
-        {% csrf_token %}
+        % csrf_token %}
         {{ form }}
         <input type="submit">
     </form>
     <a href="% url 'tasks:index' %}">View Tasks</a>
-{% endblock %}
+% endblock %}
 ```
 
 There are several advantages to using the `forms` module rather than manually writing an HTML form:
