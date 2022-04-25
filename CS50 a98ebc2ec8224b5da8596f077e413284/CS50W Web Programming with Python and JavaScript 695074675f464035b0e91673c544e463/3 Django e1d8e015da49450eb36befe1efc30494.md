@@ -418,7 +418,7 @@ Now, let’s create our `index.html` template. We’ll have to again create a ne
 </html>
 ```
 
-In the code above, notice that when we wish to include logic in our HTML files, we use "{% and %}" as opening and closing tags around logical statements. Also note that Django’s formatting language requires you to include an ending tag indicating that we are done with our `if-else` block. Now, we can open up to our page to see:
+In the code above, notice that when we wish to include logic in our HTML files, we use "%" as opening and closing tags around logical statements. Also note that Django’s formatting language requires you to include an ending tag indicating that we are done with our `if-else` block. Now, we can open up to our page to see:
 
 ![https://cs50.harvard.edu/web/2020/notes/3/images/no.png](https://cs50.harvard.edu/web/2020/notes/3/images/no.png)
 
