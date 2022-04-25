@@ -17,7 +17,6 @@
 
 [https://youtu.be/w8q0C-C1js4](https://youtu.be/w8q0C-C1js4)
 
-{% comment %}
 ## Introduction
 
 ---
@@ -455,10 +454,10 @@ h1 {
 }
 ```
 
-Now, to include this styling in our HTML file, we add the line `{% load static %}` to the top of our HTML template, which signals to Django that we wish to have access to the files in our `static` folder. Then, rather than hard-coding the link to a stylesheet as we did before, we’ll use some Django-specific syntax:
+Now, to include this styling in our HTML file, we add the line `% load static %` to the top of our HTML template, which signals to Django that we wish to have access to the files in our `static` folder. Then, rather than hard-coding the link to a stylesheet as we did before, we’ll use some Django-specific syntax:
 
 ```html
-<link rel="stylesheet" href="{% static 'newyear/styles.css' %}">
+<link rel="stylesheet" href="% static 'newyear/styles.css' %}">
 ```
 
 Now, if we restart the server, we can see that the styling changes were in fact applied:
@@ -578,7 +577,7 @@ However, what we’ve just done isn’t necessarily the best design, as we’ve 
 </html>
 ```
 
-Notice that we’ve again used `{%...%}` to denote some sort of non-HTML logic, and in this case, we’re telling Django to fill this “block” with some text from another file. Now, we can alter our other two HTML files to look like:
+Notice that we’ve again used `%...%}` to denote some sort of non-HTML logic, and in this case, we’re telling Django to fill this “block” with some text from another file. Now, we can alter our other two HTML files to look like:
 
 ```python
 index.html:
@@ -620,13 +619,13 @@ Notice how we can now get rid of much of the repeated code by *extending* our la
 Next, it’s not ideal to have to type “/add” in the URL any time we want to add a new task, so we’ll probably want to add some links between pages. Instead of hard-coding links though, we can now use the `name` variable we assigned to each path in `urls.py`, and create a link that looks like this:
 
 ```python
-<a href="{% url 'add' %}">Add a New Task</a>
+<a href="% url 'add' %}">Add a New Task</a>
 ```
 
 where ‘add’ is the name of that path. We can do a similar thing in our `add.html`:
 
 ```python
-<a href="{% url 'index' %}">View Tasks</a>
+<a href="% url 'index' %}">View Tasks</a>
 ```
 
 This could potentially create a problem though, as we have a few routes named `index` throughout our different apps. We can solve this by going into each of our app’s `urls.py` file, and adding an `app_name` variable, so that the files now look something like this:
@@ -645,15 +644,15 @@ urlpatterns = [
 We can then change our links from simply `index` and `add` to `tasks:index` and `tasks:add`
 
 ```python
-<a href="{% url 'tasks:index' %}">View Tasks</a>
+<a href="% url 'tasks:index' %}">View Tasks</a>
 
-<a href="{% url 'tasks:add' %}">Add a New Task</a>
+<a href="% url 'tasks:add' %}">Add a New Task</a>
 ```
 
 Now, let’s work on making sure the form actually does something when the user submits it. We can do this by adding an `action` to the form we have created in `add.html`:
 
 ```python
-<form action="{% url 'tasks:add' %}" method="post">
+<form action="% url 'tasks:add' %}" method="post">
 ```
 
 This means that once the form is submitted, we will be routed back to the `add` URL. Here we’ve specified that we’ll be using a *post* method rather than a *get* method, which is typically what we’ll use any time a form could alter the state of that web page.
@@ -665,7 +664,7 @@ To solve this problem, when Django sends a response rendering a template, it als
 To incorporate this technology into our code, we must add a line to our form in `add.html`.
 
 ```python
-<form action="{% url 'tasks:add' %}" method="post">
+<form action="% url 'tasks:add' %}" method="post">
     {% csrf_token %}
     <input type="text", name="task">
     <input type="submit">
@@ -718,12 +717,12 @@ Now, within `add.html`, we can replace our input field with the form we just cre
 
 {% block body %}
     <h1>Add Task:</h1>
-    <form action="{% url 'tasks:add' %}" method="post">
+    <form action="% url 'tasks:add' %}" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit">
     </form>
-    <a href="{% url 'tasks:index' %}">View Tasks</a>
+    <a href="% url 'tasks:index' %}">View Tasks</a>
 {% endblock %}
 ```
 
@@ -852,4 +851,4 @@ Video
 - Finish Project 1.
 
 [Project 1](3%20Django%20e1d8e015da49450eb36befe1efc30494/Project%201%202a2b10eec91b47bfba200f7825865e62.md)
-{% endcomment %}
+
