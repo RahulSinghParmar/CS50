@@ -17,6 +17,7 @@
 
 [https://youtu.be/w8q0C-C1js4](https://youtu.be/w8q0C-C1js4)
 
+{% comment %}
 ## Introduction
 
 ---
@@ -851,3 +852,4 @@ Video
 - Finish Project 1.
 
 [Project 1](3%20Django%20e1d8e015da49450eb36befe1efc30494/Project%201%202a2b10eec91b47bfba200f7825865e62.md)
+{% endcomment %}
