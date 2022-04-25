@@ -336,7 +336,7 @@ Now, in the `index.html` template that the site loads, we start out with only an
 
 ```html
 
-{% load static %}
+% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -352,7 +352,7 @@ Now, in the `index.html` template that the site loads, we start out with only an
                 padding-bottom: 50px;
             }
         </style>
-        <script scr="{% static 'posts/script.js' %}"></script>
+        <script scr="% static 'posts/script.js' %}"></script>
     </head>
     <body>
         <div id="posts">

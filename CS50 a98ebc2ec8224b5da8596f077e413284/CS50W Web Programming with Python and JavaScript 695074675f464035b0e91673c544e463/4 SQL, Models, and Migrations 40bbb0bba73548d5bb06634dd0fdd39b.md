@@ -635,8 +635,8 @@ Inside our new `layout.html` file:
         <title>Flights</title>
     </head>
     <body>
-        {% block body %}
-        {% endblock %}
+        % block body %}
+        % endblock %}
     </body>
 </html>
 ```
@@ -645,16 +645,16 @@ Inside a new `index.html` file:
 
 ```html
 
-{% extends "flights/layout.html" %}
+% extends "flights/layout.html" %}
 
-{% block body %}
+% block body %}
     <h1>Flights:</h1>
     <ul>
-        {% for flight in flights %}
+        % for flight in flights %}
             <li>Flight {{ flight.id }}: {{ flight.origin }} to {{ flight.destination }}</li>
-        {% endfor %}
+        % endfor %}
     </ul>
-{% endblock %}
+% endblock %}
 ```
 
 What we’ve done here is created a default page where we have a list of all flights we’ve created so far. When we open up the page now, it looks like this
@@ -739,33 +739,33 @@ Now we’ll create a template to display this flight information with a link bac
 
 ```html
 
-{% extends "flights/layout.html" %}
+% extends "flights/layout.html" %}
 
-{% block body %}
+% block body %}
     <h1>Flight {{ flight.id }}</h1>
     <ul>
         <li>Origin: {{ flight.origin }}</li>
         <li>Destination: {{ flight.destination }}</li>
         <li>Duration: {{ flight.duration }} minutes</li>
     </ul>
-    <a href="{% url 'index' %}">All Flights</a>
-{% endblock %}
+    <a href="% url 'index' %}">All Flights</a>
+% endblock %}
 ```
 
 Finally, we need to add the ability to link from one page to another, so we’ll modify our index page to include links:
 
 ```html
 
-{% extends "flights/layout.html" %}
+% extends "flights/layout.html" %}
 
-{% block body %}
+% block body %}
     <h1>Flights:</h1>
     <ul>
-        {% for flight in flights %}
-            <li><a href="{% url 'flight' flight.id %}">Flight {{ flight.id }}</a>: {{ flight.origin }} to {{ flight.destination }}</li>
-        {% endfor %}
+        % for flight in flights %}
+            <li><a href="% url 'flight' flight.id %}">Flight {{ flight.id }}</a>: {{ flight.origin }} to {{ flight.destination }}</li>
+        % endfor %}
     </ul>
-{% endblock %}
+% endblock %}
 ```
 
 Now our homepage looks like this
@@ -817,11 +817,11 @@ Now, add a list of passengers to `flight.html`:
 ```html
 <h2>Passengers:</h2>
 <ul>
-    {% for passenger in passengers %}
+    % for passenger in passengers %}
         <li>{{ passenger }}</li>
-    {% empty %}
+    % empty %}
         <li>No Passengers.</li>
-    {% endfor %}
+    % endfor %}
 </ul>
 ```
 
@@ -876,12 +876,12 @@ def flight(request, flight_id):
 Now, we’ll add a form to our flight page’s HTML using a select input field:
 
 ```html
-<form action="{% url 'book' flight.id %}" method="post">
-    {% csrf_token %}
+<form action="% url 'book' flight.id %}" method="post">
+    % csrf_token %}
     <select name="passenger" id="">
-        {% for passenger in non_passengers %}
+        % for passenger in non_passengers %}
             <option value="{{ passenger.id }}">{{ passenger }}</option>
-        {% endfor %}
+        % endfor %}
     </select>
     <input type="submit">
 </form>
@@ -928,20 +928,20 @@ Let’s begin by creating a form where a user can log in. We’ll create a `layo
 
 ```html
 
-{% extends "users/layout.html" %}
+% extends "users/layout.html" %}
 
-{% block body %}
-    {% if message %}
+% block body %}
+    % if message %}
         <div>{{ message }}</div>
-    {% endif %}
+    % endif %}
 
-    <form action="{% url 'login' %}" method="post">
-        {% csrf_token %}
+    <form action="% url 'login' %}" method="post">
+        % csrf_token %}
         <input type="text", name="username", placeholder="Username">
         <input type="password", name="password", placeholder="Password">
         <input type="submit", value="Login">
     </form>
-{% endblock %}
+% endblock %}
 ```
 
 Now, in `views.py`, we’ll add three functions:
@@ -992,17 +992,17 @@ Now, we’ll create the `user.html` file that the `index` function renders when 
 
 ```html
 
-{% extends "users/layout.html" %}
+% extends "users/layout.html" %}
 
-{% block body %}
+% block body %}
     <h1>Welcome, {{ request.user.first_name }}</h1>
     <ul>
         <li>Username: {{ request.user.username }}</li>
         <li>Email: {{ request.user.email }}</li>
     </ul>
 
-    <a href="{% url 'logout' %}">Log Out</a>
-{% endblock %}
+    <a href="% url 'logout' %}">Log Out</a>
+% endblock %}
 ```
 
 Finally, to allow the user to log out, we’ll update the `logout_view` function so that it uses Django’s built-in `logout` function:
