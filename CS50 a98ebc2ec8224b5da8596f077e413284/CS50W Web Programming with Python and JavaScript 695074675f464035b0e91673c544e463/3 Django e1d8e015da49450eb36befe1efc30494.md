@@ -418,7 +418,6 @@ Now, let’s create our `index.html` template. We’ll have to again create a ne
 </html>
 ```
 
-
 ![https://cs50.harvard.edu/web/2020/notes/3/images/no.png](https://cs50.harvard.edu/web/2020/notes/3/images/no.png)
 
 Now, to get a better idea of what’s going on behind the scenes, let’s inspect the element of this page:
@@ -850,4 +849,3 @@ Video
 - Finish Project 1.
 
 [Project 1](3%20Django%20e1d8e015da49450eb36befe1efc30494/Project%201%202a2b10eec91b47bfba200f7825865e62.md)
-

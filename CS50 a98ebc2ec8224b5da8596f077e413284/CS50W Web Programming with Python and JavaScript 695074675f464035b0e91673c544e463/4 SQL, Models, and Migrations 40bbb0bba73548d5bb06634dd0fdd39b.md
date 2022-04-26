@@ -4,23 +4,23 @@
 
 - Introduction
 - SQL
-    - Databases
-    - Column Types
+  - Databases
+  - Column Types
 - Tables
 - SELECT
-    - Working with SQL in the Terminal
-    - Functions
-    - UPDATE
-    - DELETE
-    - Other Clauses
+  - Working with SQL in the Terminal
+  - Functions
+  - UPDATE
+  - DELETE
+  - Other Clauses
 - Joining Tables
-    - JOIN Query
-    - Indexing:
-    - SQL Vulnerabilities
+  - JOIN Query
+  - Indexing:
+  - SQL Vulnerabilities
 - Django Models
 - Migrations
 - Shell
-    - Starting our application
+  - Starting our application
 - Django Admin
 - Many-to-Many Relationships
 - Users
@@ -349,9 +349,9 @@ ON passengers.flight_id = flights.id;
 
 ![https://cs50.harvard.edu/web/2020/notes/4/images/join.png](https://cs50.harvard.edu/web/2020/notes/4/images/join.png)
 
-We’ve just used something called an [INNER JOIN](https://www.w3schools.com/sql/sql_join_inner.asp), which means we are ignoring rows that have no matches between the tables, but there are other types of joins, including **[LEFT JOIN**s](https://www.w3schools.com/sql/sql_join_left.asp), **[RIGHT JOIN**s](https://www.w3schools.com/sql/sql_join_right.asp), and **[FULL OUTER JOIN**s](https://www.w3schools.com/sql/sql_join_full.asp), which we won’t discuss here in detail.
+We’ve just used something called an [INNER JOIN](https://www.w3schools.com/sql/sql_join_inner.asp), which means we are ignoring rows that have no matches between the tables, but there are other types of joins, including **[LEFT JOIN**s](https://www.w3schools.com/sql/sql_join_left.asp),**[RIGHT JOIN**s](https://www.w3schools.com/sql/sql_join_right.asp), and **[FULL OUTER JOIN**s](https://www.w3schools.com/sql/sql_join_full.asp), which we won’t discuss here in detail.
 
-### Indexing:
+### Indexing
 
 One way we can make our queries more efficient when dealing with large tables is to create an index similar to the index you might see in the back of a textbook. For example, if we know that we’ll often look up passengers by their last name, we could create an index from last name to id using the command:
 
@@ -382,7 +382,7 @@ SELECT * FROM users
 WHERE username = "harry"--" AND password = "12345";
 ```
 
-Because in this query the password checking has been commented out, the hacker can log into Harry’s account without knowing their password. 
+Because in this query the password checking has been commented out, the hacker can log into Harry’s account without knowing their password.
 To solve this problem, we can use:
 
 - Escape characters to make sure SQL treats the input as plain text and not as SQL code.
@@ -410,11 +410,11 @@ Now we’ll have to go through the process of adding an app as usual:
 
 1. Add `flights` to the `INSTALLED_APPS` list in `settings.py`
 2. Add a route for `flights` in `urls.py`:
-    
+
     ```sql
      path("flights/", include("flights.urls")),
     ```
-    
+
 3. Create a `urls.py` file within the `flights` application. And fill it with standard `urls.py` imports and lists.
 
 Now, rather than creating actual paths and getting started on `views.py`, we’ll create some models in the `[models.py](http://models.py)` file. In this file, we’ll outline what data we want to store in our application. Then, Django will determine the SQL syntax necessary to store information on each of our models. Let’s take a look at what a model for a single flight might look like:
@@ -558,7 +558,7 @@ this case, we specify that when an airport is deleted, all flights
 associated with it should also be deleted. There are [several other options](https://docs.djangoproject.com/en/4.0/ref/models/fields/#django.db.models.ForeignKey.on_delete) in addition to `CASCADE`.
 - We provide a [related name](https://docs.djangoproject.com/en/4.0/ref/models/fields/#django.db.models.ForeignKey.related_name), which gives us a way to search for all flights with a given airport as their origin or destination.
 
-Every time we make changes in `models.py`, we have to make migrations and then migrate. Note that you may have to 
+Every time we make changes in `models.py`, we have to make migrations and then migrate. Note that you may have to
 delete your existing flight from New York to London, as it doesn’t fit in with the new database structure.
 
 ```bash
@@ -799,7 +799,7 @@ class Passenger(models.Model):
 
 To actually make these changes, we must make migrations and migrate. We can then register the Passenger model in `admin.py` and visit the admin page to create some passengers!
 
-Now that we’ve added some passengers, let’s update our flight page so that it displays all passengers on a flight. We’ll first visit `views.py` and update our flight view to provide a list of passengers as context. 
+Now that we’ve added some passengers, let’s update our flight page so that it displays all passengers on a flight. We’ll first visit `views.py` and update our flight view to provide a list of passengers as context.
 We access the list using the related name we defined earlier.
 
 ```python
@@ -893,7 +893,7 @@ Now, let’s see what the site looks like when I go to a flight page and then ad
 
 ![https://cs50.harvard.edu/web/2020/notes/4/images/submitted.png](https://cs50.harvard.edu/web/2020/notes/4/images/submitted.png)
 
-Another advantage of using the Django admin app is that it is customizable. For example, if we wish to see all aspects of a flight in 
+Another advantage of using the Django admin app is that it is customizable. For example, if we wish to see all aspects of a flight in
 the admin interface, we can create a new class within `admin.py` and add it as an argument when registering the `Flight` model:
 
 ```python
@@ -1034,10 +1034,10 @@ Watch lecture.
 Video
 
 - MP4
-    - [360p](https://cdn.cs50.net/web/2020/spring/lectures/4/lecture4-360p.mp4.download)
-    - [720p](https://cdn.cs50.net/web/2020/spring/lectures/4/lecture4-720p.mp4.download)
-    - [1080p](https://cdn.cs50.net/web/2020/spring/lectures/4/lecture4-1080p.mp4.download)
-    - [4K](https://cdn.cs50.net/web/2020/spring/lectures/4/lecture4-4k.mp4.download)
+  - [360p](https://cdn.cs50.net/web/2020/spring/lectures/4/lecture4-360p.mp4.download)
+  - [720p](https://cdn.cs50.net/web/2020/spring/lectures/4/lecture4-720p.mp4.download)
+  - [1080p](https://cdn.cs50.net/web/2020/spring/lectures/4/lecture4-1080p.mp4.download)
+  - [4K](https://cdn.cs50.net/web/2020/spring/lectures/4/lecture4-4k.mp4.download)
 
 - Finish [Project 2.](4%20SQL,%20Models,%20and%20Migrations%2040bbb0bba73548d5bb06634dd0fdd39b/Project%202%20d8c1c8fa416a42b2ae9773d76644a3b7.md)
 

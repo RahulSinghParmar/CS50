@@ -8,15 +8,14 @@
 - Variables
 - `querySelector`
 - DOM Manipulation
-    - JavaScript Console
-    - Arrow Functions
-    - TODO List
+  - JavaScript Console
+  - Arrow Functions
+  - TODO List
 - Intervals
 - Local Storage
 - APIs
-    - JavaScript Objects
-    - Currency Exchange
-    
+  - JavaScript Objects
+  - Currency Exchange
 
 [https://youtu.be/x5trGVMKTdY](https://youtu.be/x5trGVMKTdY)
 
@@ -266,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-Another way that we can improve our design is by moving our JavaScript into a separate file. The way we do this is very similar to 
+Another way that we can improve our design is by moving our JavaScript into a separate file. The way we do this is very similar to
 how we put our CSS in a separate file for styling:
 
 1. Write all of your JavaScript code in a separate file ending in `.js`, maybe `index.js`.
@@ -543,7 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 
-In addition to specifying that functions run when an event is triggered, we can also set functions to run after a set amount of time. 
+In addition to specifying that functions run when an event is triggered, we can also set functions to run after a set amount of time.
 For example, let’s return to our counter page’s script, and add an interval so even if the user doesn’t click anything, the counter increments every second. To do this, we use the [setInterval](https://www.w3schools.com/jsref/met_win_setinterval.asp) function, which takes as argument a function to be run, and a time (in milliseconds) between function runs.
 
 ```jsx
@@ -667,7 +666,7 @@ Let’s take a look at how to implement this API into an application by creating
 </html>
 ```
 
-Now, we’ll use something called [AJAX](https://www.w3schools.com/js/js_ajax_intro.asp), or Asynchronous JavaScript And XML, which allows us to access 
+Now, we’ll use something called [AJAX](https://www.w3schools.com/js/js_ajax_intro.asp), or Asynchronous JavaScript And XML, which allows us to access
 information from external pages even after our page has loaded. In order to do this, we’ll use the [fetch](https://javascript.info/fetch) function which will allow us to send an HTTP request. The `fetch` function returns a [promise](https://web.dev/promises/). We won’t talk about the details of what a promise is here, but we can think of it as a value that will come through at some point, but not necessarily right away. We deal with promises by giving them a `.then` attribute describing what should be done when we get a `response`. The code snippet below will log our response to the console.
 
 ```jsx
@@ -781,10 +780,10 @@ Watch lecture.
 Video
 
 - MP4
-    - [360p](https://cdn.cs50.net/web/2020/spring/lectures/5/lecture5-360p.mp4.download)
-    - [720p](https://cdn.cs50.net/web/2020/spring/lectures/5/lecture5-720p.mp4.download)
-    - [1080p](https://cdn.cs50.net/web/2020/spring/lectures/5/lecture5-1080p.mp4.download)
-    - [4K](https://cdn.cs50.net/web/2020/spring/lectures/5/lecture5-4k.mp4.download)
+  - [360p](https://cdn.cs50.net/web/2020/spring/lectures/5/lecture5-360p.mp4.download)
+  - [720p](https://cdn.cs50.net/web/2020/spring/lectures/5/lecture5-720p.mp4.download)
+  - [1080p](https://cdn.cs50.net/web/2020/spring/lectures/5/lecture5-1080p.mp4.download)
+  - [4K](https://cdn.cs50.net/web/2020/spring/lectures/5/lecture5-4k.mp4.download)
 
 - Start [Project 3.](5%20JavaScript%20435a8862ee1948fda01bdd049f5083fa/Project%203%2000ad1cd6217f4655b67de8ef1d870328.md)
 

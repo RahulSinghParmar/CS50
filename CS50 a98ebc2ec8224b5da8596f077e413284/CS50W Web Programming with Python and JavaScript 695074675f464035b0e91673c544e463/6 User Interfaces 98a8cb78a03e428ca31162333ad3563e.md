@@ -6,10 +6,10 @@
 - User Interfaces
 - Single Page Applications
 - Scroll
-    - Infinite Scroll
+  - Infinite Scroll
 - Animation
 - React
-    - Addition
+  - Addition
 
 [https://youtu.be/jrBhi8wbzPw](https://youtu.be/jrBhi8wbzPw)
 
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ![https://cs50.harvard.edu/web/2020/notes/6/images/singlepage1.gif](https://cs50.harvard.edu/web/2020/notes/6/images/singlepage1.gif)
 
-In many cases, it will be inefficient to load the entire contents of every page when we first visit a site, so we will need to use a server to access new data. For example, when you visit a news site, it would take far too long for the site to load if it had to load every single article it has available when you first visit the page. We can avoid this problem using a strategy similar to the one we used while loading currency exchange rates in the previous lecture. This time, we’ll take a look at using Django to send and receive information from our single page application. To show how this works, let’s take a look at a simple Django application. 
+In many cases, it will be inefficient to load the entire contents of every page when we first visit a site, so we will need to use a server to access new data. For example, when you visit a news site, it would take far too long for the site to load if it had to load every single article it has available when you first visit the page. We can avoid this problem using a strategy similar to the one we used while loading currency exchange rates in the previous lecture. This time, we’ll take a look at using Django to send and receive information from our single page application. To show how this works, let’s take a look at a simple Django application.
 
 It has two URL patterns in `urls.py`:
 
@@ -582,7 +582,7 @@ function add_post(contents) {
 };
 ```
 
-Now, we’ll work on hiding a post when the `hide` button is clicked. To do this, we’ll add an event listener that is 
+Now, we’ll work on hiding a post when the `hide` button is clicked. To do this, we’ll add an event listener that is
 triggered whenever a user clicks anywhere on the page. We then write a function that takes in the `event` as an argument, which is useful because we can use the `event.target` attribute to access what was clicked on. We can also use the `parentElement` class to find the parent of a given element in the DOM.
 
 ```css
@@ -756,7 +756,7 @@ Now that we understant what the code is doing, we can take a look at the resulti
 
 ![https://cs50.harvard.edu/web/2020/notes/6/images/react0.png](https://cs50.harvard.edu/web/2020/notes/6/images/react0.png)
 
-One useful feature of React is the ability to render components within other components. To demonstrate this, let’s create another 
+One useful feature of React is the ability to render components within other components. To demonstrate this, let’s create another
 component called `Hello`:
 
 ```
@@ -994,9 +994,9 @@ Watch lecture.
 Video
 
 - MP4
-    - [360p](https://cdn.cs50.net/web/2020/spring/lectures/6/lecture6-360p.mp4.download)
-    - [720p](https://cdn.cs50.net/web/2020/spring/lectures/6/lecture6-720p.mp4.download)
-    - [1080p](https://cdn.cs50.net/web/2020/spring/lectures/6/lecture6-1080p.mp4.download)
-    - [4K](https://cdn.cs50.net/web/2020/spring/lectures/6/lecture6-4k.mp4.download)
+  - [360p](https://cdn.cs50.net/web/2020/spring/lectures/6/lecture6-360p.mp4.download)
+  - [720p](https://cdn.cs50.net/web/2020/spring/lectures/6/lecture6-720p.mp4.download)
+  - [1080p](https://cdn.cs50.net/web/2020/spring/lectures/6/lecture6-1080p.mp4.download)
+  - [4K](https://cdn.cs50.net/web/2020/spring/lectures/6/lecture6-4k.mp4.download)
 
 - Finish [Project 3.](5%20JavaScript%20435a8862ee1948fda01bdd049f5083fa/Project%203%2000ad1cd6217f4655b67de8ef1d870328.md)

@@ -7,21 +7,21 @@
 - Scaling
 - Load Balancing
 - Autoscaling
-    - Server Failure
+  - Server Failure
 - Scaling Databases
-    - Database Replication
+  - Database Replication
 - Caching
 - Security
-    - Git and GitHub
+  - Git and GitHub
 - HTML
 - HTTPS
-    - Secret-Key Cryptography
-    - Public-Key Cryptography
+  - Secret-Key Cryptography
+  - Public-Key Cryptography
 - Databases
-    - APIs
-    - Environment Variables
+  - APIs
+  - Environment Variables
 - JavaScript
-    - Cross-Site Request Forgery
+  - Cross-Site Request Forgery
 - What’s next?
 
 [https://youtu.be/6PWTxRGh_dk](https://youtu.be/6PWTxRGh_dk)
@@ -69,7 +69,7 @@ When we use horizontal scaling, we are faced with the additional problem of how 
 - **Round-Robin**: In this method, the load balancer will alternate which server receives an incoming request. If we have three servers, the first request might go to server A, the second to server B, the third to server C, and the fourth back to server A.
 - **Fewest Connections**: In this method, the load balancer looks for the server that is currently handling the fewest requests, and assigns the incoming request to that server. This allows us to make sure we’re not overworking one particular server, but it also takes longer for the load balancer to calculate the number of requests each server is currently handling than it dows for it to simply choose a random server.
 
-There is no method of load balancing that is strictly better than all other methods, and there are many different methods used in practice. 
+There is no method of load balancing that is strictly better than all other methods, and there are many different methods used in practice.
 One problem that can arise when scaling horizontally is that we might have sessions that are stored on one server but not another, and we don’t want users to have to re-enter information just because the load balancer pushes their request to a new server. Like many problems of scalability, there are multiple approaches to solving the problem of sessions:
 
 - **Sticky Sessions**: Once a user visits a site, the load balancer remembers which server they were sent to first, and makes sure to send them to the same one. One big concern with this method is that we could end up having a large number of users sticking to one server, causing it to crash.
@@ -106,9 +106,9 @@ Even after we’ve scaled a database, it seems we’re still left with a single 
 ![https://cs50.harvard.edu/web/2020/notes/8/images/single_primary.png](https://cs50.harvard.edu/web/2020/notes/8/images/single_primary.png)
 
 - **Multi-Primary Replication**: In this method, all of the databases can be read from and written to. This solves the problem of a single point of failure, but it comes with a tradeoff: it is now much more difficult to keep all databases up to date because each database must be aware of changes to all other databases. This system also sets us up for the possibility of some conflicts:
-    - **Update Conflict**: With multiple databases, one user may attempt to edit a row in one database while another user attempts to edit that same row in a different database, causing a problem when the databases sync up.
-    - **Uniqueness Conflict**: Every row in a SQL database must have a unique identifier, and we may run into the problem that we assign the same id to two different entries in two different databases.
-    - **Delete Conflict**: One user may delete a row while another user attempts to update it.
+  - **Update Conflict**: With multiple databases, one user may attempt to edit a row in one database while another user attempts to edit that same row in a different database, causing a problem when the databases sync up.
+  - **Uniqueness Conflict**: Every row in a SQL database must have a unique identifier, and we may run into the problem that we assign the same id to two different entries in two different databases.
+  - **Delete Conflict**: One user may delete a row while another user attempts to update it.
 
 ![https://cs50.harvard.edu/web/2020/notes/8/images/multi_primary.png](https://cs50.harvard.edu/web/2020/notes/8/images/multi_primary.png)
 
@@ -120,11 +120,11 @@ Whenever we’re working with larger databases, it is important to recognize tha
 
 One way that caching can be implemented is by storing data on the user’s web browser, so that when a user loads certain pages, no request to the server even needs to be sent. One way to do this is by including this line in the header of an HTTP response:
 
-```
+```bash
 Cache-Control: max-age=86400
 ```
 
-This will tell the browser that when visiting a page, as long as I have visited that page within the last 86400 milliseconds, no request has to be made to the server. This method is used commonly by web browsers especially with files that are less likely to change over short periods such as a CSS file. To take more control over this process, we can also add an `ETag` to the HTTP response header, which is a unique sequence of characters 
+This will tell the browser that when visiting a page, as long as I have visited that page within the last 86400 milliseconds, no request has to be made to the server. This method is used commonly by web browsers especially with files that are less likely to change over short periods such as a CSS file. To take more control over this process, we can also add an `ETag` to the HTTP response header, which is a unique sequence of characters
 that represents a specific version of a document. This is useful because future requests can include this tag and compare it to the tag of the latest document on the server, only returning an entire document when the two differ.
 
 In addition to the client-side caching discussed above, it can often be helpful to include a cache on the server side. With this cache, our backend setup will look a bit like the one below, where all servers have access to a cache.
@@ -143,7 +143,7 @@ We won’t go into the details here of how to implement caching in Django, but d
 
 ---
 
-Now, we’ll begin to discuss how to make sure our web applications are secure, which will involve many different measures that span nearly 
+Now, we’ll begin to discuss how to make sure our web applications are secure, which will involve many different measures that span nearly
 every topic we’ve discussed in this course.
 
 ### Git and GitHub
@@ -170,7 +170,7 @@ Which acts like this:
 
 ![https://cs50.harvard.edu/web/2020/notes/8/images/phishing.gif](https://cs50.harvard.edu/web/2020/notes/8/images/phishing.gif)
 
-The fact that HTML is actually sent to a user as part of a request opens up more vulnerabilities, because everyone has access to the layout and style that allowed you to create your site. For example, a hacker could go to [bankofamerica.com](https://cs50.harvard.edu/), copy all of their HTML, and paste it in their own site, creating a site that looks exactly like Bank of America’s. The hacker could then redirect the login form on the page so all usernames and passwords are 
+The fact that HTML is actually sent to a user as part of a request opens up more vulnerabilities, because everyone has access to the layout and style that allowed you to create your site. For example, a hacker could go to [bankofamerica.com](https://cs50.harvard.edu/), copy all of their HTML, and paste it in their own site, creating a site that looks exactly like Bank of America’s. The hacker could then redirect the login form on the page so all usernames and passwords are
 sent to them. (Also, here’s the [real Bank of America link](https://www.bankofamerica.com/)–just wanted to see if you were checking urls before clicking!)
 
 ## HTTPS
@@ -298,16 +298,16 @@ The above is an example of what **Cross-Site Request Forgery** might look like. 
 We’ve discussed many web frameworks in this class such as Django and React, but there are more frameworks you might be interested in trying:
 
 - Server-Side
-    - [Express.js](https://expressjs.com/)
-    - [Ruby on Rails](https://rubyonrails.org/)
-    - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
-    - …
+  - [Express.js](https://expressjs.com/)
+  - [Ruby on Rails](https://rubyonrails.org/)
+  - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+  - …
 - Client-Side
-    - [Angular JS](https://angularjs.org/)
-    - [React](https://reactjs.org/)
-    - [Vue.js](https://vuejs.org/)
-    - [React Native](https://reactnative.dev/)
-    - …
+  - [Angular JS](https://angularjs.org/)
+  - [React](https://reactjs.org/)
+  - [Vue.js](https://vuejs.org/)
+  - [React Native](https://reactnative.dev/)
+  - …
 
 In the future, you may also want to be able to deploy your site to the web, which you can do through a number of different services:
 
@@ -334,9 +334,9 @@ Watch lecture.
 Video
 
 - MP4
-    - [360p](https://cdn.cs50.net/web/2020/spring/lectures/8/lecture8-360p.mp4.download)
-    - [720p](https://cdn.cs50.net/web/2020/spring/lectures/8/lecture8-720p.mp4.download)
-    - [1080p](https://cdn.cs50.net/web/2020/spring/lectures/8/lecture8-1080p.mp4.download)
-    - [4K](https://cdn.cs50.net/web/2020/spring/lectures/8/lecture8-4k.mp4.download)
+  - [360p](https://cdn.cs50.net/web/2020/spring/lectures/8/lecture8-360p.mp4.download)
+  - [720p](https://cdn.cs50.net/web/2020/spring/lectures/8/lecture8-720p.mp4.download)
+  - [1080p](https://cdn.cs50.net/web/2020/spring/lectures/8/lecture8-1080p.mp4.download)
+  - [4K](https://cdn.cs50.net/web/2020/spring/lectures/8/lecture8-4k.mp4.download)
 
 [Finish Final Project.](8%20Scalability%20and%20Security%209d983c26c64b4ad4bfa38d4c1419c4f0/Finish%20Final%20Project%203385302fc4ad4de689b0ef1bc609f8f8.md)

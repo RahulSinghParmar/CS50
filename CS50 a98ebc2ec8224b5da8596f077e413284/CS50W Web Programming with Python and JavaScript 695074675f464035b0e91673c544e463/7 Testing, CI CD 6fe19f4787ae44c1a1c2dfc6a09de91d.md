@@ -5,10 +5,10 @@
 - Introduction
 - Testing
 - Assert
-    - Test-Driven Development
+  - Test-Driven Development
 - Unit Testing
 - Django Testing
-    - Client Testing
+  - Client Testing
 - Selenium
 - CI/CD
 - GitHub Actions
@@ -619,10 +619,10 @@ Now, if we run `python tests.py`, our simulations will be carried out in the bro
 **CI/CD**, which stands for **Continuous Integration and Continuous Delivery**, is a set of software development best practices that dictate how code is written by a team of people, and how that code is later delivered to users of the application. As the name implies, this method consists of two main parts:
 
 - Continuous Integration:
-    - Frequent merges to the main branch
-    - Automated unit testing with each merge
+  - Frequent merges to the main branch
+  - Automated unit testing with each merge
 - Continuous Delivery:
-    - Short release schedules, meaning new versions of an application are released frequently.
+  - Short release schedules, meaning new versions of an application are released frequently.
 
 CI/CD has become more and more popular among software development teams for a number of reasons:
 
@@ -672,11 +672,11 @@ Since this is our first time using GitHub Actions, let’s go through what each 
 - Next, with the `on` key, we specify when the workflow should run. In our case, we wish to
 perform the tests every time someone pushes to the repository.
 - The rest of the file is contained within a `jobs` key, which indicates which jobs should be run at every push.
-    - In our case, the only job is `test_project`. Every job must define two componenets
-        - The `runs-on` key specifies which of GitHub’s virtual machines we would like our code to be run on.
-        - The `steps` key provides the actions that should occur when this job is run
-            - In the `uses` key we specify which GitHub action we wish to use. `actions/checkout@v2` is an action written by GitHub that we can use.
-            - The `name` key here allows us to proide a description of the action we’re taking
+  - In our case, the only job is `test_project`. Every job must define two componenets
+    - The `runs-on` key specifies which of GitHub’s virtual machines we would like our code to be run on.
+    - The `steps` key provides the actions that should occur when this job is run
+      - In the `uses` key we specify which GitHub action we wish to use. `actions/checkout@v2` is an action written by GitHub that we can use.
+    - The `name` key here allows us to proide a description of the action we’re taking
             - After the `run` key, we type the commands we wish to run on GitHub’s server. In our
             case we wish to install Django and then run the testing file.
 
@@ -740,11 +740,11 @@ In the above file we:
 
 - Specify that we’re using version 3 of Docker Compose
 - Outline two services:
-    - `db` sets up our database container based on an image already written by Postgres.
-    - `web` sets up our server’s container by instructing Docker to:
-        - Use the Dockerfile within the current directory.
-        - Use the specified path within the container.
-        - Link port 8000 within the container to port 8000 on our computer.
+  - `db` sets up our database container based on an image already written by Postgres.
+  - `web` sets up our server’s container by instructing Docker to:
+    - Use the Dockerfile within the current directory.
+    - Use the specified path within the container.
+    - Link port 8000 within the container to port 8000 on our computer.
 
 Now, we’re ready to start up our services with the command `docker-compose up`. This will launch both of our servers inside of new Docker containers.
 
@@ -765,10 +765,10 @@ Watch lecture.
 Video
 
 - MP4
-    - [360p](https://cdn.cs50.net/web/2020/spring/lectures/7/lecture7-360p.mp4.download)
-    - [720p](https://cdn.cs50.net/web/2020/spring/lectures/7/lecture7-720p.mp4.download)
-    - [1080p](https://cdn.cs50.net/web/2020/spring/lectures/7/lecture7-1080p.mp4.download)
-    - [4K](https://cdn.cs50.net/web/2020/spring/lectures/7/lecture7-4k.mp4.download)
+  - [360p](https://cdn.cs50.net/web/2020/spring/lectures/7/lecture7-360p.mp4.download)
+  - [720p](https://cdn.cs50.net/web/2020/spring/lectures/7/lecture7-720p.mp4.download)
+  - [1080p](https://cdn.cs50.net/web/2020/spring/lectures/7/lecture7-1080p.mp4.download)
+  - [4K](https://cdn.cs50.net/web/2020/spring/lectures/7/lecture7-4k.mp4.download)
 
 - Finish [Project 4.](7%20Testing,%20CI%20CD%206fe19f4787ae44c1a1c2dfc6a09de91d/Project%204%20328302af4cf5476195adb6fc4e1c1bed.md)
 

@@ -33,9 +33,8 @@ This course explores the concepts and algorithms at the foundation of modern art
 **Prerequisites**[CS50x](CS50X%20Introduction%20to%20Computer%20Science%200c3dc256fd064730a562642fb9d80705.md) or at least one year of experience with Python.
 
 - **Watch an introduction**
-    
+
     [https://youtu.be/_Kv4OFblJBU](https://youtu.be/_Kv4OFblJBU)
-    
 
 ## **How to Take this Course**
 
