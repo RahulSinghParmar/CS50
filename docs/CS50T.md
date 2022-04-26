@@ -5,6 +5,19 @@ title: CS50T
 
 ## Understanding technology
 
+>[Hardware](CS50T/Hardware.md)
+>
+>[Internet](CS50T/Internet.md)
+>
+>[Multimedia](CS50T/Multimedia.md)
+>
+>[Security](CS50T/Security.md)
+>
+>[Web Development](CS50T/WebDevelopment.md)
+>
+>[Programming](CS50T/Programming.md)
+>
+
 ## **Welcome**
 
 This course is for students who don’t (yet) consider themselves computer persons. Designed for students who work with technology every day but don’t necessarily understand how it all works underneath the hood or how to solve problems when something goes wrong, this course fills in the gaps, empowering students to use and troubleshoot technology more effectively. Through lectures on hardware, the Internet, multimedia, security, programming, and web development as well as through readings on current events, this course equips students for today’s technology and prepares them for tomorrow’s as well.

@@ -13,11 +13,11 @@ This course picks up where [CS50x](CS50X%20Introduction%20to%20Computer%20Scien
 
 - **Watch an introduction**
 
-<p align="center">
+<div class="video-container">
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Nn7EX3zkGUo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/Nn7EX3zkGUo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
 
-</p>
+</div>
 
 ## **How to Take this Course**
 

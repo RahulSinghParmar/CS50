@@ -11,9 +11,9 @@ Introduction to the intellectual enterprises of computer science and the art of 
 
 - **Watch an introduction**
 
-<p align="center">
+<p class="video-container">
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3oFAJtFE8YU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="1078" height="606" src="https://www.youtube.com/embed/3oFAJtFE8YU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 </p>
 

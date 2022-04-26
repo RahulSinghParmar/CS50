@@ -13,7 +13,7 @@ This course picks up where [CS50x](CS50X%20Introduction%20to%20Computer%20Scien
 
 - **Watch an introduction**
 
-<p align="center">
+<p class="video-container">
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/b16rgLIf8I4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
