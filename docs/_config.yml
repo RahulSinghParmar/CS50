@@ -2,8 +2,8 @@
 title:               CS50
 tagline:             'Professional and Lifelong Learning'
 description:         'With the rapid change in <a href="https://github.com/RahulSinghParmar" target="_blank">technology</a>, the demand for computer scientists is increasing. Find the right program for you and make a change. <br> Made by <a href="https://www.linkedin.com/in/rahul-singh-2b27211a7/" target="_blank">@rsp</a>.'
-url:                 'https://rahulsinghparmar.github.io/CS50/'
-baseurl:             '/CS50/'
+url:                 https://rahulsinghparmar.github.io/
+baseurl:             '/CS50'
 paginate:            5
 permalink:           pretty
 
